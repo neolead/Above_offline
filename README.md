@@ -14,8 +14,9 @@ pip3 install python-libpcap
 
 Tool created to offline analize pcap files.<br>
 ```Executing:
-By default file for analize : test1.pcap<br>
-python3 offline_above.py```
+By default file for analize : test1.pcap
+
+python3 offline_above.py analize.pcap```
 
 
 ```python3 pcreds.py -f test1.pcap -v```
