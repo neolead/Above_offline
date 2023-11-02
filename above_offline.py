@@ -231,7 +231,7 @@ def detect_edp(pcap_file):
     else:
         print(Fore.GREEN + Style.BRIGHT + "[*] Info:" + Fore.YELLOW + Style.BRIGHT + " Detected EDP")
 
-        # Только для первого EDP пакета
+        # Only for the first EDP package
         edp_packet = edp_packets[0]
         if hasattr(edp_packet, 'edp'):
             if edp_packet.edp.version:
@@ -307,8 +307,7 @@ def detect_pvst(pcap_file):
 
     print(Fore.GREEN + Style.BRIGHT + "[*] Info:" + Fore.YELLOW + Style.BRIGHT + " Detected PVST")
 
-    # Обработка только первого пакета PVST для простоты, можно адаптировать для обработки всех пакетов
-    pvst_frame = pvst_frames[0]
+# Process only the first PVST packet for simplicity, can be adapted to process all packets    pvst_frame = pvst_frames[0]
     try:
         pvstvlan = pvst_frame[STP].vlan
         pvstrootpriority = pvst_frame[STP].root_prio
