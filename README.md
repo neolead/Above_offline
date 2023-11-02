@@ -1,6 +1,6 @@
 # Above_offline
 Offline modification of https://github.com/wearecaster/Above
-And a copy of Pcredz
+and a copy of Pcredz
 
 For python3 
 
@@ -13,6 +13,10 @@ pip3 install python-libpcap
 ```
 
 Tool created to offline analize pcap files.<br>
-Executing:
+```Executing:
 <br>By default file for analize : test1.pcap<br>
-python3 offline_above.py
+python3 offline_above.py```
+<br>
+
+
+```python3 pcreds.py -f test1.pcap -v```
