@@ -21,6 +21,12 @@ Tool created to offline analize pcap files.
 ```Executing:
 By default file for analize : test1.pcap
 
+Tool can take long time for executing with large pcap files.. so pcap can be splitted with command below.. 
+``` -C 10 will split ~10mb ```
+
+```tcpdump -r old_file -w new_files -C 10```
+
+
 python3 offline_above.py analize.pcap```
 
 
