@@ -1,9 +1,9 @@
 # Above_offline
 Offline modification of https://github.com/wearecaster/Above
-and a copy of Pcredz
+and a copy of Pcredz and net_creds
+
 
 # Модифицированная Оффлайн версия утилиты от caster (above) - Позволяет проанализировать tcpdump pcap файл, и посмотеть его в режиме offline.
-
 
 # Modified Offline version of the utility from caster (above) - Allows you to analyze the tcpdump pcap file and view it offline.
 
@@ -31,3 +31,23 @@ python3 offline_above.py analize.pcap```
 
 
 ```python3 pcreds.py -f test1.pcap -v```
+
+
+#Net_creds
+Additionally tool net_creds with analizing pcap
+
+Running:
+
+```python2 net_creds.py  --pcap test1.pcap -v ```
+
+Thoroughly sniff passwords and hashes from an interface or pcap file. 
+Concatenates fragmented packets and does not rely on ports for service 
+identification. 
+
+###Sniffs
+
+* URLs visited * POST loads sent * HTTP form logins/passwords * HTTP basic auth logins/passwords
+* HTTP searches * FTP logins/passwords * IRC logins/passwords * POP logins/passwords
+* IMAP logins/passwords * Telnet logins/passwords * SMTP logins/passwords
+* SNMP community string * NTLMv1/v2 all supported protocols like HTTP, SMB, LDAP, etc * Kerberos
+
