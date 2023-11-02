@@ -1,6 +1,7 @@
 # Above_offline
-Offline modification of https://github.com/wearecaster/Above
-and a copy of Pcredz and net_creds
+1) Offline modification of https://github.com/wearecaster/Above
+2) Copy of Pcredz extraction sensitive data from pcap(logins passwds)
+3) Copy of net_creds extraction sensitive data from pcap(logins passwds)
 
 
 # Модифицированная Оффлайн версия утилиты от caster (above) - Позволяет проанализировать tcpdump pcap файл, и посмотеть его в режиме offline.
