@@ -2,6 +2,9 @@
 Offline modification of https://github.com/wearecaster/Above
 and a copy of Pcredz
 
+Модифицированная Оффлайн версия утилиты от caster (above) - Позволяет проанализировать tcpdump pcap файл, и посмотеть его в режиме offline.
+Modified Offline version of the utility from caster (above) - Allows you to analyze the tcpdump pcap file and view it offline.
+
 For python3 
 
 Prerequests
