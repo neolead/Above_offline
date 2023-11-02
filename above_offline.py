@@ -1,3 +1,4 @@
+import sys
 from scapy.all import *
 from scapy.all import rdpcap, Ether, Raw, STP, HSRP, Dot3, LLC, STP
 from scapy.contrib.ospf import OSPF_Hdr, OSPF_Hello
@@ -714,7 +715,14 @@ def detect_dhcpv6(pcap_file):
 
 
 def main():
-    pcap_file = "test1.pcap"  # Specify your pcap file name or path here
+    if len(sys.argv) > 1:
+        print("opening " + sys.argv[1])
+        pcap_file = sys.argv[1]
+    else:
+        print("trying open test1.pcap")
+        pcap_file = "test1.pcap"
+
+#    pcap_file = "test1.pcap"  # Specify your pcap file name or path here
     detect_mdns_pyshark(pcap_file)
     detect_mdns(pcap_file)
     detect_macsec(pcap_file)
@@ -736,4 +744,3 @@ def main():
     detect_dhcpv6(pcap_file)
 if __name__ == "__main__":
     main()
-
