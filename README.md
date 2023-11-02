@@ -12,7 +12,7 @@ pip3 install Cython
 pip3 install python-libpcap
 ```
 
-Tool created to offline analize pcap files.<br>
+Tool created to offline analize pcap files.
 ```Executing:
 By default file for analize : test1.pcap
 
