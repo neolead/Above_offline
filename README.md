@@ -9,8 +9,8 @@
 
 # Modified Offline version of the utility from caster (above) - Allows you to analyze the tcpdump pcap file and view it offline.
 
-In file 1.zip in example folder test file with pcap files concatinated in one with different type of a packets for test
-In file 1.pcap.log in example folder test report
+* In file 1.zip in example folder test file with pcap files concatinated in one with different type of a packets for test
+* In file 1.pcap.log in example folder test report
 
 ## BETA for multy threading
 ```
