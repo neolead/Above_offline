@@ -1,64 +1,85 @@
 # Above_offline
-1) Offline modification of https://github.com/wearecaster/Above
-2) Copy of Pcredz extraction sensitive data from pcap(logins passwds)
-3) Copy of net_creds extraction sensitive data from pcap(logins passwds)
 
+## Description
+This is an offline modification of the utility [Above](https://github.com/wearecaster/Above), which allows for the analysis of tcpdump pcap files in an offline mode. It is also capable of extracting sensitive data such as login credentials from pcap files, similar to the functionality provided by Pcredz and net_creds.
 
+## Features
+- **Offline Analysis**: Analyze tcpdump pcap files without the need for an active internet connection.
+- **Data Extraction**: Extract sensitive information such as usernames and passwords from pcap files.
 
-* Модифицированная Оффлайн версия утилиты от caster (above) - Позволяет проанализировать tcpdump pcap файл, и посмотеть его в режиме offline.
+## Example Files
+- **1.zip**: Contains concatenated pcap files with different types of packets for testing.
+- **1.pcap.log**: Contains a test report in the example folder.
 
-* Modified Offline version of the utility from caster (above) - Allows you to analyze the tcpdump pcap file and view it offline.
+## Beta for Multithreading
+Execute in the background:
+\```bash
+python3 above_offline_multythread.py analize.pcap > analize.pcap.log&
+\```
 
-* In file 1.zip in example folder test file with pcap files concatinated in one with different type of a packets for test
-* In file 1.pcap.log in example folder test report
+Read the log in the background:
+\```bash
+tail -f analize.pcap.log
+\```
 
-## BETA for multy threading
-```
-For executing in background: python3 above_offline_multythread.py analize.pcap > analize.pcap.log&
-For reading log in background: tail -f analize.pcap.log
-For just a read log after: nano analize.pcap.log
-```
+Read the log after execution:
+\```bash
+nano analize.pcap.log
+\```
 
-For python3 
-
-Prerequests
-```
-pip3 install -r requrements.txt
+## Prerequisites
+For Python 3:
+\```bash
+pip3 install -r requirements.txt
 apt-get install libpcap-dev
 pip3 install Cython
 pip3 install python-libpcap
-```
+\```
 
-Tool created to offline analize pcap files.
-```Executing:
-By default file for analize : test1.pcap
+## Usage
+**Executing**:
+By default, the file for analysis is `test1.pcap`.
 
-Tool can take long time for executing with large pcap files.. so pcap can be splitted with command below.. 
-``` -C 10 will split ~10mb ```
+Tool can take a long time to execute with large pcap files. The pcap can be split using the following command (where `-C 10` will split into ~10MB chunks):
+\```bash
+tcpdump -r old_file -w new_files -C 10
+\```
 
-```tcpdump -r old_file -w new_files -C 10```
+To analyze a pcap file:
+\```bash
+python3 above_offline.py analize.pcap
+\```
 
+Using pcreds to extract information:
+\```bash
+python3 pcreds.py -f test1.pcap -v
+\```
 
-```python3 above_offline.py analize.pcap```
+Using net_creds to extract information:
+\```bash
+python2 net_creds.py --pcap test1.pcap -v
+\```
 
+Running with multithreading:
+\```bash
+python3 above_offline_multythread.py analize.pcap > analize.pcap.log
+\```
 
-```python3 pcreds.py -f test1.pcap -v```
+## Data Sniffing
+Thoroughly sniff passwords and hashes from an interface or pcap file, concatenating fragmented packets without relying on ports for service identification.
 
-
-```python2 net_creds.py  --pcap test1.pcap -v ```
-
-```python3 above_offline_multythread.py analize.pcap > analize.pcap.log ```
-
-
-
-Thoroughly sniff passwords and hashes from an interface or pcap file. 
-Concatenates fragmented packets and does not rely on ports for service 
-identification. 
-
-###Sniffs
-
-* URLs visited * POST loads sent * HTTP form logins/passwords * HTTP basic auth logins/passwords
-* HTTP searches * FTP logins/passwords * IRC logins/passwords * POP logins/passwords
-* IMAP logins/passwords * Telnet logins/passwords * SMTP logins/passwords
-* SNMP community string * NTLMv1/v2 all supported protocols like HTTP, SMB, LDAP, etc * Kerberos
-
+### Sniffs
+- URLs visited.
+- POST loads sent.
+- HTTP form logins/passwords.
+- HTTP basic auth logins/passwords.
+- HTTP searches.
+- FTP logins/passwords.
+- IRC logins/passwords.
+- POP logins/passwords.
+- IMAP logins/passwords.
+- Telnet logins/passwords.
+- SMTP logins/passwords.
+- SNMP community strings.
+- NTLMv1/v2 across all supported protocols like HTTP, SMB, LDAP, etc.
+- Kerberos credentials.
