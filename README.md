@@ -38,6 +38,11 @@ pip3 install python-libpcap
 
 ## Usage
 **Executing**:
+
+For example traffic can be sniffed for 10 minutes at interface eth0 with command:
+
+```timeout 600 tcpdump -s0 --immediate-mode -w 1.pcap -S -i eth0 port not 22```
+
 By default, the file for analysis is `test1.pcap`.
 
 Tool can take a long time to execute with large pcap files. The pcap can be split using the following command (where `-C 10` will split into ~10MB chunks):
