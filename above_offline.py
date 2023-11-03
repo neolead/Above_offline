@@ -723,7 +723,7 @@ def main():
         pcap_file = "test1.pcap"
 
 #    pcap_file = "test1.pcap"  # Specify your pcap file name or path here
-    detect_mdns_pyshark(pcap_file)
+    #detect_mdns_pyshark(pcap_file)
     detect_mdns(pcap_file)
     detect_macsec(pcap_file)
     detect_cdp(pcap_file)
