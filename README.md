@@ -14,7 +14,7 @@
 
 ## BETA for multy threading
 ```
-For executing in background: python 3 above_offline_multythread.py analize.pcap > analize.pcap.log&
+For executing in background: python3 above_offline_multythread.py analize.pcap > analize.pcap.log&
 For reading log in background: tail -f analize.pcap.log
 For just a read log after: nano analize.pcap.log
 ```
@@ -45,12 +45,11 @@ Tool can take long time for executing with large pcap files.. so pcap can be spl
 ```python3 pcreds.py -f test1.pcap -v```
 
 
-#Net_creds
-Additionally tool net_creds with analizing pcap
-
-Running:
-
 ```python2 net_creds.py  --pcap test1.pcap -v ```
+
+```python3 above_offline_multythread.py analize.pcap > analize.pcap.log ```
+
+
 
 Thoroughly sniff passwords and hashes from an interface or pcap file. 
 Concatenates fragmented packets and does not rely on ports for service 
