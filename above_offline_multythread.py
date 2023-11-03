@@ -725,7 +725,7 @@ def main():
 
 #    pcap_file = "test1.pcap"  # Specify your pcap file name or path here
     detection_functions = [
-        detect_mdns_pyshark,
+#        detect_mdns_pyshark,
         detect_mdns,
         detect_macsec,
         detect_cdp,
