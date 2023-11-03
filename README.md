@@ -3,13 +3,14 @@
 2) Copy of Pcredz extraction sensitive data from pcap(logins passwds)
 3) Copy of net_creds extraction sensitive data from pcap(logins passwds)
 
-# In file 1.zip in example folder test file with pcap files concatinated in one with different type of a packets for test
-# In file 1.pcap.log in example folder test report
 
 
 # Модифицированная Оффлайн версия утилиты от caster (above) - Позволяет проанализировать tcpdump pcap файл, и посмотеть его в режиме offline.
 
 # Modified Offline version of the utility from caster (above) - Allows you to analyze the tcpdump pcap file and view it offline.
+
+In file 1.zip in example folder test file with pcap files concatinated in one with different type of a packets for test
+In file 1.pcap.log in example folder test report
 
 ## BETA for multy threading
 ```
