@@ -8,6 +8,13 @@
 
 # Modified Offline version of the utility from caster (above) - Allows you to analyze the tcpdump pcap file and view it offline.
 
+## BETA for multy threading
+```
+For executing in background: python 3 above_offline_multythread.py analize.pcap > analize.pcap.log&
+For reading log in background: tail -f analize.pcap.log
+For just a read log after: nano analize.pcap.log
+```
+
 For python3 
 
 Prerequests
