@@ -18,18 +18,18 @@ python3 above_offline_multythread.py analize.pcap > analize.pcap.log&
 \```
 
 Read the log in the background:
-\```bash
+\```
 tail -f analize.pcap.log
 \```
 
 Read the log after execution:
-\```bash
+\```
 nano analize.pcap.log
 \```
 
 ## Prerequisites
 For Python 3:
-\```bash
+\```
 pip3 install -r requirements.txt
 apt-get install libpcap-dev
 pip3 install Cython
@@ -46,27 +46,27 @@ For example traffic can be sniffed for 10 minutes at interface eth0 with command
 By default, the file for analysis is `test1.pcap`.
 
 Tool can take a long time to execute with large pcap files. The pcap can be split using the following command (where `-C 10` will split into ~10MB chunks):
-\```bash
+\```
 tcpdump -r old_file -w new_files -C 10
 \```
 
 To analyze a pcap file:
-\```bash
+\```
 python3 above_offline.py analize.pcap
 \```
 
 Using pcreds to extract information:
-\```bash
+\```
 python3 pcreds.py -f test1.pcap -v
 \```
 
 Using net_creds to extract information:
-\```bash
+\```
 python2 net_creds.py --pcap test1.pcap -v
 \```
 
 Running with multithreading:
-\```bash
+\```
 python3 above_offline_multythread.py analize.pcap > analize.pcap.log
 \```
 
