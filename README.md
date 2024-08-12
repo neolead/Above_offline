@@ -13,7 +13,7 @@ This is an offline modification of the utility [Above](https://github.com/wearec
 
 ## Beta for Multithreading
 Execute in the background:
-\```bash
+\```
 python3 above_offline_multythread.py analize.pcap > analize.pcap.log&
 \```
 
