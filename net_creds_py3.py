@@ -932,4 +932,72 @@ def get_login_pass(body):
 
 def printer(src_ip_port, dst_ip_port, msg):
     if dst_ip_port != None:
-   
+        print_str = '[%s > %s] %s%s%s' % (src_ip_port, dst_ip_port, T, msg, W)
+        # All credentials will have dst_ip_port, URLs will not
+
+        # Prevent identical outputs unless it's an HTTP search or POST load
+        skip = ['Searched ', 'POST load:']
+        for s in skip:
+            if s not in msg:
+                if os.path.isfile('credentials.txt'):
+                    with open('credentials.txt', 'r') as log:
+                        contents = log.read()
+                        if msg in contents:
+                            return
+
+        print(print_str)
+
+        # Escape colors like whatweb has
+        ansi_escape = re.compile(r'\x1b[^m]*m')
+        print_str = ansi_escape.sub('', print_str)
+
+        # Log the creds
+        logging.info(print_str)
+    else:
+        print_str = '[%s] %s' % (src_ip_port.split(':')[0], msg)
+        print(print_str)
+
+def run(pcap=None, interface=None, filterip=None):
+
+    ##################### DEBUG ##########################
+    ## Hit Ctrl-C while program is running and you can see
+    ## whatever variable you want within the IPython cli
+    ## Don't forget to uncomment IPython in imports
+    #def signal_handler(signal, frame):
+    #    embed()
+    ##    sniff(iface=conf.iface, prn=pkt_parser, store=0)
+    #    sys.exit()
+    #signal.signal(signal.SIGINT, signal_handler)
+    ######################################################
+
+    # Read packets from either pcap or interface
+    if pcap:
+        try:
+            cap = pcap
+            for pkt in PcapReader(cap):
+                pkt_parser(pkt)
+        except IOError:
+            sys.exit('[-] Could not open %s' % pcap)
+
+    else:
+        # Check for root
+        if os.geteuid():
+            sys.exit('[-] Please run as root')
+
+        # Find the active interface
+        if interface:
+            conf.iface = interface
+        else:
+            conf.iface = iface_finder()
+        print('[*] Using interface:', conf.iface)
+
+        if filterip:
+            sniff(iface=conf.iface, prn=pkt_parser, filter="not host %s" % filterip, store=0)
+        else:
+            sniff(iface=conf.iface, prn=pkt_parser, store=0)
+
+def main(args):
+    run(pcap=args.pcap, interface=args.interface, filterip=args.filterip)
+
+if __name__ == "__main__":
+    main(parse_args())
